@@ -5,6 +5,10 @@ import sys
 
 
 def main():
+    from purple.settings import env
+    print("-=-=-=-=-=-=",env)
+    print(env("STATIC_URL"))
+    print(env("CORS_ORIGIN_ALLOW_ALL"))
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'purple.settings')
     try:
