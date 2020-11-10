@@ -13,7 +13,7 @@ class Cake(models.Model):
     ingredient = models.CharField(max_length=511, blank=True, null=True)
     weight = models.DecimalField(
         max_digits=6, decimal_places=2, blank=True, null=True)
-    image = models.ImageField(upload_to='img/vitrin', blank=True, null=True)
+    image = models.ImageField(upload_to='', blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -37,7 +37,7 @@ class Marsipan(models.Model):
     ingredient = models.CharField(max_length=511, blank=True, null=True)
     weight = models.DecimalField(
         max_digits=6, decimal_places=2, blank=True, null=True)
-    image = models.ImageField(upload_to='img/marsipan', blank=True, null=True)
+    image = models.ImageField(upload_to='', blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -60,7 +60,7 @@ class Flower(models.Model):
     ingredient = models.CharField(max_length=511, blank=True, null=True)
     weight = models.DecimalField(
         max_digits=6, decimal_places=2, blank=True, null=True)
-    image = models.ImageField(upload_to='img/flower', blank=True, null=True)
+    image = models.ImageField(upload_to='', blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -83,7 +83,7 @@ class Xonca(models.Model):
     ingredient = models.CharField(max_length=511, blank=True, null=True)
     weight = models.DecimalField(
         max_digits=6, decimal_places=2, blank=True, null=True)
-    image = models.ImageField(upload_to='img/xonca', blank=True, null=True)
+    image = models.ImageField(upload_to='', blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -97,4 +97,4 @@ class XoncaCategory(models.Model):
 
 
 class Cafe(models.Model):
-    image = models.ImageField(upload_to='img/cafe')
+    image = models.ImageField(upload_to='')
