@@ -21,120 +21,56 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '-pt+1)!d$hca8_esv8)^!0pfqh%&cofmy@1o@bou0zffgrsxio'
+SECRET_KEY = os.environ.get("SECRET_KEY", os.path.join(BASE_DIR, ".env"))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUD", os.path.join(BASE_DIR, ".env"))
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS", os.path.join(BASE_DIR, ".env"))
 
-CORS_ORIGIN_ALLOW_ALL = True
+CORS_ORIGIN_ALLOW_ALL = os.environ.get("CORS_ORIGIN_ALLOW_ALL", os.path.join(BASE_DIR, ".env"))
 
 # Application definition
 
-INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'api',
-    'rest_framework',
-    'corsheaders',
-]
+INSTALLED_APPS = os.environ.get("INSTALLED_APPS", os.path.join(BASE_DIR, ".env"))
 
-MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+MIDDLEWARE = os.environ.get("MIDDLEWARE", os.path.join(BASE_DIR, ".env"))
 
-    'corsheaders.middleware.CorsMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
-]
+ROOT_URLCONF = os.environ.get("ROOT_URLCONF", os.path.join(BASE_DIR, ".env"))
 
-ROOT_URLCONF = 'purple.urls'
+TEMPLATES = os.environ.get("TEMPLATES", os.path.join(BASE_DIR, ".env"))
 
-TEMPLATES = [
-    {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.debug',
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
-            ],
-        },
-    },
-]
-
-WSGI_APPLICATION = 'purple.wsgi.application'
+WSGI_APPLICATION = os.environ.get("WSGI_APPLICATION", os.path.join(BASE_DIR, ".env"))
 
 
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
 
-DATABASES = {
-    "default": {
-        "ENGINE": os.environ.get("SQL_ENGINE", "django.db.backends.sqlite3"),
-        "NAME": os.environ.get("SQL_DATABASE", os.path.join(BASE_DIR, "db.sqlite3")),
-        "USER": os.environ.get("SQL_USER", "user"),
-        "PASSWORD": os.environ.get("SQL_PASSWORD", "password"),
-        "HOST": os.environ.get("SQL_HOST", "localhost"),
-        "PORT": os.environ.get("SQL_PORT", "5432"),
-    }
-}
+DATABASES = os.environ.get("DATABASES", os.path.join(BASE_DIR, ".env"))
 
 # Password validation
 # https://docs.djangoproject.com/en/3.1/ref/settings/#auth-password-validators
 
-AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
-]
+AUTH_PASSWORD_VALIDATORS = os.environ.get("AUTH_PASSWORD_VALIDATORS", os.path.join(BASE_DIR, ".env"))
 
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = os.environ.get("LANGUAGE_CODE", os.path.join(BASE_DIR, ".env"))
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = os.environ.get("TIME_ZONE", os.path.join(BASE_DIR, ".env"))
 
-USE_I18N = True
+USE_I18N = os.environ.get("USE_I18N", os.path.join(BASE_DIR, ".env"))
 
-USE_L10N = True
+USE_L10N = os.environ.get("USE_L10N", os.path.join(BASE_DIR, ".env"))
 
-USE_TZ = True
+USE_TZ = os.environ.get("USE_TZ", os.path.join(BASE_DIR, ".env"))
 
 
-# Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/3.1/howto/static-files/
-
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, '../frontend/public/')
+STATIC_URL = os.environ.get("STATIC_URL", os.path.join(BASE_DIR, ".env"))
+STATIC_ROOT = os.environ.get("STATIC_ROOT", os.path.join(BASE_DIR, ".env"))
+MEDIA_URL = os.environ.get("MEDIA_URL", os.path.join(BASE_DIR, ".env"))
+MEDIA_ROOT = os.environ.get("MEDIA_ROOT", os.path.join(BASE_DIR, ".env"))
 NEXT_APP = '/../frontend/'
