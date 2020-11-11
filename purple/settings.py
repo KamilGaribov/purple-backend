@@ -25,16 +25,14 @@ env = environ.Env(
     LANGUAGE_CODE=(str, 'en-us'),
     TIME_ZONE=(str, 'UTC'),
     USE_I18N=(bool, True),
-    USE_L10N=(bool,True),
-    USE_TZ=(bool,True),
+    USE_L10N=(bool, True),
+    USE_TZ=(bool, True),
     STATIC_URL=(str, '/static/'),
     MEDIA_URL=(str, '/media/'),
 )
 
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
@@ -100,7 +98,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = env("WSGI_APPLICATION")
 
-
 # Database
 # https://docs.djangoproject.com/en/3.1/ref/settings/#databases
 
@@ -134,7 +131,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/3.1/topics/i18n/
 
@@ -147,9 +143,6 @@ USE_I18N = env("USE_I18N")
 USE_L10N = env("USE_L10N")
 
 USE_TZ = env("USE_TZ")
-
-
-
 
 STATIC_URL = env('STATIC_URL')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
