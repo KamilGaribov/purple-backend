@@ -29,8 +29,8 @@ env = environ.Env(
     USE_TZ=(bool, True),
     STATIC_URL=(str, '/static/'),
     MEDIA_URL=(str, ''),
+    MEDIA_ROOT=(str, ''),
 )
-
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -147,5 +147,6 @@ USE_TZ = env("USE_TZ")
 STATIC_URL = env('STATIC_URL')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 MEDIA_URL = env("MEDIA_URL")
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
+MEDIA_ROOT = env("MEDIA_ROOT")
 NEXT_APP = '/../frontend/'
+print(MEDIA_ROOT)
