@@ -28,7 +28,7 @@ env = environ.Env(
     USE_L10N=(bool,True),
     USE_TZ=(bool,True),
     STATIC_URL=(str, '/static/'),
-    MEDIA_URL=(str, '/media/'),
+    MEDIA_URL=(str, ''),
 )
 
 
@@ -154,5 +154,5 @@ USE_TZ = env("USE_TZ")
 STATIC_URL = env('STATIC_URL')
 STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
 MEDIA_URL = env("MEDIA_URL")
-MEDIA_ROOT = os.path.join(BASE_DIR, '../frontend/public/')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 NEXT_APP = '/../frontend/'
