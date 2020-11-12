@@ -28,7 +28,7 @@ env = environ.Env(
     USE_L10N=(bool, True),
     USE_TZ=(bool, True),
     STATIC_URL=(str, '/static/'),
-    STATIC_ROOT=(str, ''),
+    STATIC_ROOT=(str, 'static/'),
     MEDIA_URL=(str, ''),
     MEDIA_ROOT=(str, ''),
 )
@@ -145,7 +145,7 @@ USE_L10N = env("USE_L10N")
 
 USE_TZ = env("USE_TZ")
 
-STATIC_URL = env('STATIC_URL')
+STATIC_URL = env("STATIC_URL")
 STATIC_ROOT = env("STATIC_ROOT")
 MEDIA_URL = env("MEDIA_URL")
 MEDIA_ROOT = env("MEDIA_ROOT")
