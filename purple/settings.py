@@ -28,7 +28,7 @@ env = environ.Env(
     USE_L10N=(bool, True),
     USE_TZ=(bool, True),
     STATIC_URL=(str, '/static/'),
-    STATIC_ROOT=(str, '/home/purple-frontend/styles'),
+    STATIC_ROOT=(str, ''),
     MEDIA_URL=(str, ''),
     MEDIA_ROOT=(str, ''),
 )
