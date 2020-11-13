@@ -98,3 +98,10 @@ class XoncaCategory(models.Model):
 
 class Cafe(models.Model):
     image = models.ImageField(upload_to='')
+
+class Contact(models.Model):
+    name = models.CharField(max_length=31)
+    email = models.EmailField(blank=True, null=True)
+    phone = models.CharField(max_length=15, blank=True, null=True)
+    subject = models.CharField(max_length=31)
+    message = models.TextField()

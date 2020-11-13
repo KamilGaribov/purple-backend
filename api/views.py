@@ -69,3 +69,10 @@ class CafeApi(viewsets.ModelViewSet):
         permissions.AllowAny
     ]
     serializer_class = CafeSerializer
+
+class ContactApi(viewsets.ModelViewSet):
+    queryset = Contact.objects.all()
+    permission_classes = [
+        permissions.AllowAny
+    ]
+    serializer_class = ContactSerializer

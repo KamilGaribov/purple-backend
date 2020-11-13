@@ -46,6 +46,10 @@ class CafeAdmin(admin.ModelAdmin):
     class Meta:
         model = Cafe
 
+class ContactAdmin(admin.ModelAdmin):
+    class Meta:
+        model = Contact
+
 admin.site.register(Cake, CakeAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Marsipan, MarsipanAdmin)
@@ -55,3 +59,4 @@ admin.site.register(FlowerCategory, FlowerCategoryAdmin)
 admin.site.register(Xonca, XoncaAdmin)
 admin.site.register(XoncaCategory, XoncaCategoryAdmin)
 admin.site.register(Cafe, CafeAdmin)
+admin.site.register(Contact, ContactAdmin)
