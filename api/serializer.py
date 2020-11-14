@@ -12,7 +12,7 @@ class CakeSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(use_url=False)
     class Meta:
         model = Cake
-        fields = ('id', 'name', 'price', 'discount', 'category', 'ingredient', 'weight', 'image')
+        fields = ('id', 'name', 'price', 'discount', 'category', 'ingredient', 'weight', 'image', 'similar1', 'similar2', 'similar3', 'similar4', )
 
 class MarsipanCategorySerializer(serializers.ModelSerializer):
     class Meta:
