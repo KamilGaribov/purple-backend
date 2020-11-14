@@ -19,10 +19,11 @@ class Cake(models.Model):
     similar3 = models.ForeignKey('Cake', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar3')
     similar4 = models.ForeignKey('Cake', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar4')
 
+    class Meta:
+        abstract = True
+
     def __str__(self):
         return self.name
-    class Meta:
-		abstract = True
 
 
 class Category(models.Model):
