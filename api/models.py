@@ -14,10 +14,10 @@ class Cake(models.Model):
     weight = models.DecimalField(
         max_digits=6, decimal_places=2, blank=True, null=True)
     image = models.ImageField(upload_to='', blank=True, null=True)
-    similar1 = models.ForeignKey('Cake', on_delete=models.SET_NULL, blank=True, null=True)
-    similar2 = models.ForeignKey('Cake', on_delete=models.SET_NULL, blank=True, null=True)
-    similar3 = models.ForeignKey('Cake', on_delete=models.SET_NULL, blank=True, null=True)
-    similar4 = models.ForeignKey('Cake', on_delete=models.SET_NULL, blank=True, null=True)
+    similar1 = models.ForeignKey('Cake', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar1')
+    similar2 = models.ForeignKey('Cake', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar3')
+    similar3 = models.ForeignKey('Cake', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar3')
+    similar4 = models.ForeignKey('Cake', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar4')
 
     def __str__(self):
         return self.name
