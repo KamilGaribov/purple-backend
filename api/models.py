@@ -42,6 +42,10 @@ class Marsipan(models.Model):
     weight = models.DecimalField(
         max_digits=6, decimal_places=2, blank=True, null=True)
     image = models.ImageField(upload_to='', blank=True, null=True)
+    similar1 = models.ForeignKey('Marsipan', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar1_of')
+    similar2 = models.ForeignKey('Marsipan', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar2_of')
+    similar3 = models.ForeignKey('Marsipan', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar3_of')
+    similar4 = models.ForeignKey('Marsipan', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar4_of')
 
     def __str__(self):
         return self.name
@@ -65,6 +69,10 @@ class Flower(models.Model):
     weight = models.DecimalField(
         max_digits=6, decimal_places=2, blank=True, null=True)
     image = models.ImageField(upload_to='', blank=True, null=True)
+    similar1 = models.ForeignKey('Flower', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar1_of')
+    similar2 = models.ForeignKey('Flower', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar2_of')
+    similar3 = models.ForeignKey('Flower', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar3_of')
+    similar4 = models.ForeignKey('Flower', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar4_of')
 
     def __str__(self):
         return self.name
@@ -88,6 +96,10 @@ class Xonca(models.Model):
     weight = models.DecimalField(
         max_digits=6, decimal_places=2, blank=True, null=True)
     image = models.ImageField(upload_to='', blank=True, null=True)
+    similar1 = models.ForeignKey('Xonca', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar1_of')
+    similar2 = models.ForeignKey('Xonca', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar2_of')
+    similar3 = models.ForeignKey('Xonca', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar3_of')
+    similar4 = models.ForeignKey('Xonca', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar4_of')
 
     def __str__(self):
         return self.name
