@@ -2,16 +2,16 @@ from rest_framework import serializers
 from .models import *
 
 
-class CategorySerializer(serializers.ModelSerializer):
+class VitrinCategorySerializer(serializers.ModelSerializer):
     class Meta:
-        model = Category
+        model = VitrinCategory
         fields = ('name', )
 
-class CakeSerializer(serializers.ModelSerializer):
-    category = CategorySerializer(read_only=True)
+class VitrinSerializer(serializers.ModelSerializer):
+    category = VitrinCategorySerializer(read_only=True)
     image = serializers.ImageField(use_url=False)
     class Meta:
-        model = Cake
+        model = Vitrin
         fields = ('id', 'name', 'price', 'discount', 'category', 'ingredient', 'weight', 'image', 'similar1', 'similar2', 'similar3', 'similar4', )
 
 class MarsipanCategorySerializer(serializers.ModelSerializer):

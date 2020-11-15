@@ -33,12 +33,12 @@ class NextAppView(View):
 
 
 # class StadionApi(ReadOnlyModelViewSet):
-class CakeApi(viewsets.ModelViewSet):
-    queryset = Cake.objects.all()
+class VitrinApi(viewsets.ModelViewSet):
+    queryset = Vitrin.objects.all()
     permission_classes = [
         permissions.AllowAny
     ]
-    serializer_class = CakeSerializer
+    serializer_class = VitrinSerializer
 
 class MarsipanApi(viewsets.ModelViewSet):
     queryset = Marsipan.objects.all()

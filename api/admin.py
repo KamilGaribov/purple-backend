@@ -2,14 +2,14 @@ from django.contrib import admin
 from .models import *
 from django.utils.html import format_html
 
-class CakeAdmin(admin.ModelAdmin):
+class VitrinAdmin(admin.ModelAdmin):
     list_filter = ('category', )
     class Meta:
-        model = Cake
+        model = Vitrin
 
-class CategoryAdmin(admin.ModelAdmin):
+class VitrinCategoryAdmin(admin.ModelAdmin):
     class Meta:
-        model = Category
+        model = VitrinCategory
 
 class MarsipanAdmin(admin.ModelAdmin):
     list_filter = ('category', )
@@ -50,8 +50,8 @@ class ContactAdmin(admin.ModelAdmin):
     class Meta:
         model = Contact
 
-admin.site.register(Cake, CakeAdmin)
-admin.site.register(Category, CategoryAdmin)
+admin.site.register(Vitrin, VitrinAdmin)
+admin.site.register(VitrinCategory, VitrinCategoryAdmin)
 admin.site.register(Marsipan, MarsipanAdmin)
 admin.site.register(MarsipanCategory, MarsipanCategoryAdmin)
 admin.site.register(Flower, FlowerAdmin)
