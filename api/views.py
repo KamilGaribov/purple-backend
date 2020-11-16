@@ -101,4 +101,7 @@ class HomePageProductApi(viewsets.ModelViewSet):
         flower = Flower.objects.filter(homepage=True).order_by('?')[0: HomePageProduct.objects.all()[0].flower]
         xonca = Xonca.objects.filter(homepage=True).order_by('?')[0: HomePageProduct.objects.all()[0].xonca]
         list = chain(vitrin, marsipan, flower, xonca)
-        return list
+        if list:
+            return list
+        else:
+            return []
