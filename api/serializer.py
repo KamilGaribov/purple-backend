@@ -21,9 +21,10 @@ class MarsipanCategorySerializer(serializers.ModelSerializer):
 
 class MarsipanSerializer(serializers.ModelSerializer):
     category = MarsipanCategorySerializer(read_only=True)
+    image = serializers.ImageField(use_url=False)
     class Meta:
         model = Marsipan
-        fields = '__all__'
+        fields = ('id', 'name', 'price', 'discount', 'category', 'ingredient', 'weight', 'image', 'similar1', 'similar2', 'similar3', 'similar4', )
 
 class FlowerCategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -32,9 +33,10 @@ class FlowerCategorySerializer(serializers.ModelSerializer):
 
 class FlowerSerializer(serializers.ModelSerializer):
     category = FlowerCategorySerializer(read_only=True)
+    image = serializers.ImageField(use_url=False)
     class Meta:
         model = Flower
-        fields = '__all__'
+        fields = ('id', 'name', 'price', 'discount', 'category', 'ingredient', 'weight', 'image', 'similar1', 'similar2', 'similar3', 'similar4', )
 
 class XoncaCategorySerializer(serializers.ModelSerializer):
     class Meta:
@@ -43,9 +45,10 @@ class XoncaCategorySerializer(serializers.ModelSerializer):
 
 class XoncaSerializer(serializers.ModelSerializer):
     category = XoncaCategorySerializer(read_only=True)
+    image = serializers.ImageField(use_url=False)
     class Meta:
         model = Xonca
-        fields = '__all__'
+        fields = ('id', 'name', 'price', 'discount', 'category', 'ingredient', 'weight', 'image', 'similar1', 'similar2', 'similar3', 'similar4', )
 
 class CafeSerializer(serializers.ModelSerializer):
     image = serializers.ImageField(use_url=False) 
@@ -56,4 +59,9 @@ class CafeSerializer(serializers.ModelSerializer):
 class ContactSerializer(serializers.ModelSerializer):
     class Meta:
         model = Contact
+        fields = '__all__'
+
+class HomePageProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = HomePageProduct
         fields = '__all__'

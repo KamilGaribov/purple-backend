@@ -50,6 +50,10 @@ class ContactAdmin(admin.ModelAdmin):
     class Meta:
         model = Contact
 
+class HomePageProductAdmin(admin.ModelAdmin):
+    class Meta:
+        model = HomePageProduct
+
 admin.site.register(Vitrin, VitrinAdmin)
 admin.site.register(VitrinCategory, VitrinCategoryAdmin)
 admin.site.register(Marsipan, MarsipanAdmin)
@@ -60,3 +64,4 @@ admin.site.register(Xonca, XoncaAdmin)
 admin.site.register(XoncaCategory, XoncaCategoryAdmin)
 admin.site.register(Cafe, CafeAdmin)
 admin.site.register(Contact, ContactAdmin)
+admin.site.register(HomePageProduct, HomePageProductAdmin)
