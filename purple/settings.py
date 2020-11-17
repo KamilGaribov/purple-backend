@@ -145,9 +145,12 @@ USE_L10N = env("USE_L10N")
 
 USE_TZ = env("USE_TZ")
 
-STATIC_URL = env("STATIC_URL")
-STATIC_ROOT = env("STATIC_ROOT")
+# STATIC_URL = env("STATIC_URL")
+# STATIC_ROOT = env("STATIC_ROOT")
+
+STATIC_URL = '/static/'
+STATICFILES_DIR = '/root/purple-backend/static'
+STATIC_ROOT = '/root/purple-backend/static'
+
 MEDIA_URL = env("MEDIA_URL")
 MEDIA_ROOT = env("MEDIA_ROOT")
-NEXT_APP = '/../frontend/'
-print(MEDIA_ROOT)
