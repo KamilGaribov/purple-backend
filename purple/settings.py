@@ -154,7 +154,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static"),
 ]
 STATIC_URL = '/static/'
-STATIC_ROOT = "/var/api.purplecakeboutique.az/static/"
+STATIC_ROOT = "/var/www/api.purplecakeboutique.az/static/"
 
 MEDIA_URL = env("MEDIA_URL")
 MEDIA_ROOT = env("MEDIA_ROOT")
