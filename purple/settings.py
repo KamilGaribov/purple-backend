@@ -30,7 +30,7 @@ env = environ.Env(
     STATIC_URL=(str, '/static/'),
     STATIC_ROOT=(str, 'static/'),
     MEDIA_URL=(str, ''),
-    MEDIA_ROOT=(str, ''),
+    MEDIA_ROOT=(str, 'http://purplecakeboutique.az/'),
 )
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
