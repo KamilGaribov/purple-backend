@@ -150,11 +150,14 @@ USE_TZ = env("USE_TZ")
 
 # STATICFILES_DIR = '/root/purple-backend/static'
 # STATIC_ROOT = '/root/purple-backend/static'
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static"),
+# ]
 STATIC_URL = '/static/'
-STATIC_ROOT = "/var/api.purplecakeboutique.az/static/"
+# STATIC_ROOT = "/var/api.purplecakeboutique.az/static/"
+STATIC_ROOT = "static/"
 
 MEDIA_URL = env("MEDIA_URL")
 MEDIA_ROOT = env("MEDIA_ROOT")
+# /root/purple-backend/static
+# /var/api.purplecakeboutique.az/static/
