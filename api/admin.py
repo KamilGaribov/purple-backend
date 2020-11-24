@@ -42,7 +42,7 @@ class XoncaCategoryAdmin(admin.ModelAdmin):
 class CafeAdmin(admin.ModelAdmin):
     list_display = ('image_tag', )
     def image_tag(self,obj):
-        return format_html('<img src="/home/purple-frontend/public/{0}" style="width: autopx; height:100px;" />'.format(obj.image.url))
+        return format_html('<img src="http://purplecakeboutique.az/{0}" style="width: autopx; height:100px;" />'.format(obj.image.url))
     class Meta:
         model = Cafe
 
