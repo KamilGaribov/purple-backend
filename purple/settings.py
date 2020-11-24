@@ -29,7 +29,7 @@ env = environ.Env(
     USE_TZ=(bool, True),
     STATIC_URL=(str, '/static/'),
     STATIC_ROOT=(str, 'static/'),
-    MEDIA_URL=(str, ''),
+    MEDIA_URL=(str, '/media/'),
     MEDIA_ROOT=(str, 'http://purplecakeboutique.az/'),
 )
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
