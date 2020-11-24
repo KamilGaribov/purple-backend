@@ -29,8 +29,8 @@ env = environ.Env(
     USE_TZ=(bool, True),
     STATIC_URL=(str, '/static/'),
     STATIC_ROOT=(str, 'static/'),
-    MEDIA_URL=(str, '/media/'),
-    MEDIA_ROOT=(str, 'http://purplecakeboutique.az/'),
+    # MEDIA_URL=(str, '/media/'),
+    # MEDIA_ROOT=(str, 'http://purplecakeboutique.az/'),
 )
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -157,7 +157,9 @@ STATIC_URL = '/static/'
 # STATIC_ROOT = "/var/api.purplecakeboutique.az/static/"
 STATIC_ROOT = "static/"
 
-MEDIA_URL = env("MEDIA_URL")
-MEDIA_ROOT = env("MEDIA_ROOT")
+MEDIA_URL = '/media/'
+MEDIA_ROOT = 'http://purplecakeboutique.az/'
+# MEDIA_URL = env("MEDIA_URL")
+# MEDIA_ROOT = env("MEDIA_ROOT")
 # /root/purple-backend/static
 # /var/api.purplecakeboutique.az/static/
