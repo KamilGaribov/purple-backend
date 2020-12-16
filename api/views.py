@@ -17,6 +17,48 @@ from django.conf import settings
 import os
 from itertools import chain
 from rest_framework.views import APIView
+import requests
+from urllib.request import urlopen
+
+
+class Test(APIView):
+    permission_classes = [
+        permissions.AllowAny
+    ]
+    def get(self, request):
+        # url = "https://e-commerce.kapitalbank.az:5443/Exec"
+        url = "https://e-commerce.kapitalbank.az/index.jsp?"
+        xml = """<?xml version="1.0" encoding="UTF-8"?>
+        <TKKPG>
+        <Request>
+           <Operation>CreateOrder</Operation>
+           <Language>RU</Language>
+           <Order>
+             <OrderType>Purchase</OrderType>
+             <Merchant>E1000010</Merchant>
+             <Amount>123456</Amount>
+             <Currency>944</Currency>
+             <Description>xxxxxxxx</Description>
+             <ApproveURL>/testshopPageReturn.jsp</ApproveURL>
+             <CancelURL>/testshopPageReturn.jsp</CancelURL>
+             <DeclineURL>/testshopPageReturn.jsp</DeclineURL>
+           </Order>
+        </Request>
+        </TKKPG>"""
+        # headers = {
+        #     # 'SOAPAction': "\"https://www.w3schools.com/xml/FahrenheitToCelsius\"",
+        #     'Content-Type': "text/xml",
+        #     'Cache-Control': "no-cache",
+        # }
+        # r = requests.get(url=url, data=xml)
+        # print(r.text())
+        headers = {'Content-Type': 'application/xml'} # set what your server accepts
+        print(requests.post(url, data=xml, headers=headers).text)
+        print("___test_______")
+        return Response({"data": requests.post(url, data=xml, headers=headers).text}, status=status.HTTP_200_OK)
+    
+
+
 
 
 class NextAppView(View):
