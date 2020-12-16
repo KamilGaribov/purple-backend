@@ -1,3 +1,5 @@
+# for server
+
 version: "3.1"
 services:
   postgres:
@@ -31,6 +33,9 @@ services:
       - postgres
     depends_on:
       - "postgres"
+
+
+# for local
 # version: "3.1"
 # services:
 #   postgres:
@@ -52,47 +57,3 @@ services:
 #     ports:
 #       - "5050:80"
 #     restart: on-failure
-
-# web:
-#   container_name: django
-#   build: .
-#   volumes:
-#     - .:/code
-#   ports:
-#     - 8000:8000
-#   links:
-#     - postgres
-#   depends_on:
-#     - "postgres"
-# version: "3.1"
-# services:
-#   postgres:
-#     container_name: postgres
-#     image: postgres:12.1
-#     env_file:
-#       - .env
-#     volumes:
-#       - ./.postgresdb/:/var/lib/postgresql/data
-#     ports:
-#       - "${POSTGRES_PORT}:5432"
-#     restart: on-failure
-
-#   pgadmin:
-#     container_name: pgadmin
-#     image: dpage/pgadmin4:4.16
-#     env_file:
-#       - .env
-#     ports:
-#       - 5050:80
-#     restart: on-failure
-
-#   web:
-#     container_name: django
-#     build: .
-#     command: bash -c "python3 manage.py makemigrations && python3 manage.py migrate && python3 manage.py runserver 0.0.0.0:8000"
-#     volumes:
-#       - .:/code
-#     ports:
-#       - "8000:8000"
-#     depends_on:
-#       - "postgres"
