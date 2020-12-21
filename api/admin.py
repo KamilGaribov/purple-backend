@@ -54,6 +54,18 @@ class HomePageProductAdmin(admin.ModelAdmin):
     class Meta:
         model = HomePageProduct
 
+class OrderAdmin(admin.ModelAdmin):
+    search_fields = ('name', )
+    list_filter = ('status', )
+    readonly_fields = ('created_at', 'status')
+    # actions = ['make_tags_active']
+
+    # def make_tags_active(self, request, queryset):
+    #     queryset.update(status='approved')
+    # make_tags_active.short_description = "Mark selected tags as active"
+    class Meta:
+        model = Order
+
 admin.site.register(Vitrin, VitrinAdmin)
 admin.site.register(VitrinCategory, VitrinCategoryAdmin)
 admin.site.register(Marsipan, MarsipanAdmin)
@@ -65,3 +77,4 @@ admin.site.register(XoncaCategory, XoncaCategoryAdmin)
 admin.site.register(Cafe, CafeAdmin)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(HomePageProduct, HomePageProductAdmin)
+admin.site.register(Order, OrderAdmin)

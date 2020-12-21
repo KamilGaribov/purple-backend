@@ -1,5 +1,3 @@
-# for server
-
 version: "3.1"
 services:
   postgres:
@@ -35,7 +33,8 @@ services:
       - "postgres"
 
 
-# for local
+
+
 # version: "3.1"
 # services:
 #   postgres:
