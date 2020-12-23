@@ -176,11 +176,7 @@ class Order(models.Model):
         return self.address
     def __init__(self, *args, **kwargs):
         super(Order, self).__init__(*args, **kwargs)
-        print("___")
-        print("init old: ", self.old_status)
         self.old_status = self.status
-        print("init old: ", self.old_status)
-        print("init status: ", self.status)
     def save(self, *args, **kwargs):
         if self.old_status == None:
             self.old_status = 'pending'
@@ -188,7 +184,20 @@ class Order(models.Model):
             if self.status == 'approved' and self.old_status == 'pending':
                 message = f"Yeni sifaris var http://api.purplecakeboutique.az/admin/api/order/{self.id}/change/"
                 sendemail(self.email, message)
-                print("________msj sent________")
-                print("save status: ",self.status)
-                print("save old: ", self.old_status)
         super(Order, self).save(*args, **kwargs)
+
+class OrderProduct(models.Model):
+    order = models.ForeignKey('Order', on_delete=models.CASCADE)
+    product = models.CharField(max_length=31, blank=True, null=True)
+    quantity = models.IntegerField()
+    content_type = models.ForeignKey(ContentType, on_delete=models.CASCADE)
+    object_id = models.PositiveIntegerField()
+    content_object = GenericForeignKey('content_type', 'object_id')
+    url = models.URLField(max_length=255, blank=True, null=True)
+    def __str__(self):
+        return f'{self.quantity} x {self.content_object}'
+    def save(self, *args, **kwargs):
+        model = self.content_object._meta.object_name.lower()
+        self.url = f'http://api.purplecakeboutique.az/admin/api/{model}/{self.content_object.id}/change/'
+        self.product = self.content_object.name
+        super(OrderProduct, self).save(*args, **kwargs)

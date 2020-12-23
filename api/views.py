@@ -64,10 +64,10 @@ class Test(APIView):
                 <Amount>{amount}</Amount>
                 <Currency>944</Currency>
                 <Description>{description}</Description>
-                <ApproveURL>http://192.168.31.51:8000/ordered/</ApproveURL>
+                <ApproveURL>http://api.purplecakeboutique.az/ordered/</ApproveURL>
                 <CancelURL>http://purplecakeboutique.az/</CancelURL>
                 <DeclineURL>http://purplecakeboutique.az/</DeclineURL>
-            </Order>
+            </Order>`
         </Request>
         </TKKPG>"""
         response = requests.post(
@@ -90,7 +90,7 @@ class Test(APIView):
             order.name = content['name']
             order.surname = content['surname']
             order.email = content['email']
-            order.amount = amount
+            order.amount = amount/100
             order.address = content['address']
             order.address2 = content['address2']
             print("contex.id: ", context['OrderID'])
@@ -99,9 +99,7 @@ class Test(APIView):
             order.sessionid = context['SessionID']
             print("_____will save")
             order.save()
-            print("000000000000")
             url2 = 'https://e-commerce.kapitalbank.az/index.jsp?ORDERID=' + context['OrderID'] + '&SESSIONID=' + context['SessionID']
-            print("url____: ", url2)
             # orderid = context.OrderID
             # sessionid = context.SessionID
             return Response({"Status": "00", "url": url2}, status=status.HTTP_200_OK)
@@ -128,7 +126,7 @@ def MakeOrder(request):
             order.status = 'approved'
             order.pan = card
             order.save()
-            return redirect("http://192.168.31.51:3000/sebet/sifarisverildi/")
+            return redirect("http://purplecakeboutique.az/sebet/sifarisverildi/")
         return HttpResponse("Yenidən cəhd edin")
     return render(request, 'index.html')
 
@@ -265,7 +263,7 @@ class NextAppView(View):
 
 # class StadionApi(ReadOnlyModelViewSet):
 class VitrinApi(viewsets.ModelViewSet):
-    queryset = Vitrin.objects.all()
+    queryset = Vitrin.objects.filter(publish=True)
     permission_classes = [
         permissions.AllowAny
     ]
@@ -273,7 +271,7 @@ class VitrinApi(viewsets.ModelViewSet):
 
 
 class MarsipanApi(viewsets.ModelViewSet):
-    queryset = Marsipan.objects.all()
+    queryset = Marsipan.objects.filter(publish=True)
     permission_classes = [
         permissions.AllowAny
     ]
@@ -281,7 +279,7 @@ class MarsipanApi(viewsets.ModelViewSet):
 
 
 class FlowerApi(viewsets.ModelViewSet):
-    queryset = Flower.objects.all()
+    queryset = Flower.objects.filter(publish=True)
     permission_classes = [
         permissions.AllowAny
     ]
@@ -289,7 +287,7 @@ class FlowerApi(viewsets.ModelViewSet):
 
 
 class XoncaApi(viewsets.ModelViewSet):
-    queryset = Xonca.objects.all()
+    queryset = Xonca.objects.filter(publish=True)
     permission_classes = [
         permissions.AllowAny
     ]
