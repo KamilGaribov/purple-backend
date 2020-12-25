@@ -100,19 +100,19 @@ class Test(APIView):
         # print("The server certificate is not valid after:")
         # print(server_cert["notAfter"])
 
-        context = ssl.SSLContext(ssl.PROTOCOL_SSLv23)
-        print(context)
-        context.load_cert_chain(certfile=cert, keyfile=key, password=password)
-        connection = http.client.HTTPSConnection(host="https://e-commerce.kapitalbank.az/", port=443, context=context)
-        connection.request(method="POST", url=url, headers=headers, body=payload)
-        response = connection.getresponse()
-        # response = requests.post(
-        #     url,
-        #     data=payload,
-        #     headers=headers,
-        #     cert=(cert, key),
-        #     verify=False,
-        # )
+        # context = ssl.SSLContext(ssl.PROTOCOL_SSLv23)
+        # print(context)
+        # context.load_cert_chain(certfile=cert, keyfile=key, password=password)
+        # connection = http.client.HTTPSConnection(host="https://e-commerce.kapitalbank.az/", port=443, context=context)
+        # connection.request(method="POST", url=url, headers=headers, body=payload)
+        # response = connection.getresponse()
+        response = requests.post(
+            url,
+            data=payload,
+            headers=headers,
+            cert=(cert, key),
+            verify=False,
+        )
         print("responsesese++++++")
         print('response___: ', response)
         print("response.cookies___: ", response.cookies)
