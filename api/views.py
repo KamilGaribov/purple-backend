@@ -25,6 +25,8 @@ import xml.etree.ElementTree as xmlET
 from django.utils.decorators import method_decorator
 from django.views.decorators.csrf import csrf_exempt
 import json
+import ssl
+import socket
 certificate_folder = os.path.join(settings.BASE_DIR, 'certificates')
 urllib3.disable_warnings()
 
@@ -51,7 +53,7 @@ class Test(APIView):
         print("ad: ", content['name'])
         print("soyad: ", content['surname'])
         print("body[amount]: ", body['amount'])
-
+        
 
         amount = body['amount'] * 100
         print("amount::-=-=-: ", amount)
@@ -61,6 +63,7 @@ class Test(APIView):
         url = "https://e-commerce.kapitalbank.az:5443/Exec"
         cert = f"{certificate_folder}/purple.crt"
         key = f"{certificate_folder}/purple.key"
+        password = "purple"
         payload = f"""<?xml version="1.0" encoding="UTF-8"?>
         <TKKPG>
         <Request>
@@ -68,23 +71,48 @@ class Test(APIView):
             <Language>AZ</Language>
             <Order>
                 <OrderType>Purchase</OrderType>
-                <Merchant>E1000010</Merchant>
+                <Merchant>E1020035</Merchant>
                 <Amount>{amount}</Amount>
                 <Currency>944</Currency>
                 <Description>{description}</Description>
-                <ApproveURL>http://api.purplecakeboutique.az/ordered/</ApproveURL>
+                <ApproveURL>http://192.168.31.51:8000/ordered/</ApproveURL>
                 <CancelURL>http://purplecakeboutique.az/</CancelURL>
                 <DeclineURL>http://purplecakeboutique.az/</DeclineURL>
             </Order>`
         </Request>
         </TKKPG>"""
-        response = requests.post(
-            url,
-            data=payload,
-            headers=headers,
-            cert=(cert, key),
-            verify=False,
-        )
+        print("____ssl starting___")
+
+        # sslServerIP = "127.0.0.1"
+        # sslServerPort = 15001
+        # sslSettings = ssl.SSLContext(ssl.PROTOCOL_SSLv23)
+        # sslSettings.verify_mode = ssl.CERT_REQUIRED
+        # # sslSettings.load_verify_locations("./DemoCA.pem")
+        # print("will load chain")
+        # sslSettings.load_cert_chain(certfile=cert)
+        # print("load chain")
+        # clientSocket = socket.socket()
+        # tlsSocket  = sslSettings.wrap_socket(clientSocket)
+        # tlsSocket.connect((sslServerIP, sslServerPort))
+        # server_cert = tlsSocket.getpeercert()
+        # print("The server certificate is not valid before:")
+        # print(server_cert["notBefore"])
+        # print("The server certificate is not valid after:")
+        # print(server_cert["notAfter"])
+
+        context = ssl.SSLContext(ssl.PROTOCOL_SSLv23)
+        print(context)
+        context.load_cert_chain(certfile=cert, keyfile=key, password=password)
+        connection = http.client.HTTPSConnection(host="https://e-commerce.kapitalbank.az/", port=443, context=context)
+        connection.request(method="POST", url=url, headers=headers, body=payload)
+        response = connection.getresponse()
+        # response = requests.post(
+        #     url,
+        #     data=payload,
+        #     headers=headers,
+        #     cert=(cert, key),
+        #     verify=False,
+        # )
         print("responsesese++++++")
         print('response___: ', response)
         print("response.cookies___: ", response.cookies)
