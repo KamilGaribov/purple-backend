@@ -54,7 +54,7 @@ class HomePageProductAdmin(admin.ModelAdmin):
     class Meta:
         model = HomePageProduct
 
-class OrderProductAdmin(admin.TabularInline):
+class OrderProductTabular(admin.TabularInline):
     # model = OrderProduct
     fields = ('quantity', 'url_display', )
     readonly_fields = ('quantity', 'url_display')
@@ -71,8 +71,12 @@ class OrderProductAdmin(admin.TabularInline):
     # class Meta:
     model = OrderProduct
 
+class OrderProductAdmin(admin.ModelAdmin):
+    class Meta:
+        model = OrderProduct
+
 class OrderAdmin(admin.ModelAdmin):
-    inlines = [OrderProductAdmin, ]
+    inlines = [OrderProductTabular, ]
     search_fields = ('name', )
     list_filter = ('status', )
     # readonly_fields = ('sessionid', 'orderid', 'pan', 'amount', 'created_at', 'status', )
@@ -101,4 +105,4 @@ admin.site.register(HomePageProduct, HomePageProductAdmin)
 admin.site.register(Order, OrderAdmin)
 
 
-# admin.site.register(OrderProduct, OrderProductAdmin)
+admin.site.register(OrderProduct, OrderProductAdmin)

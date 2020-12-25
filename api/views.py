@@ -35,10 +35,18 @@ class Test(APIView):
     ]
 
     def post(self, request):
+        print("____test api starting____")
         print("__________request.body")
         body_unicode = request.body.decode('utf-8')
         body = json.loads(body_unicode)
         content = body['data']
+        print(body['basket'])
+        basket = body['basket']
+        # for i in basket:
+        #     print("i___", i, basket[i])
+        #     if i.split(":")[0] == 'vitrin':
+        #         vitrin = Vitrin.objects.create()
+        # return True
         print("body: ", body)
         print("ad: ", content['name'])
         print("soyad: ", content['surname'])
@@ -77,6 +85,7 @@ class Test(APIView):
             cert=(cert, key),
             verify=False,
         )
+        print("responsesese++++++")
         print('response___: ', response)
         print("response.cookies___: ", response.cookies)
         print("response.content__: ", response.content)
@@ -84,6 +93,11 @@ class Test(APIView):
         xml_response = xmlET.fromstring(response.content)
         for i in xml_response.iter("*"):
             context[i.tag] = i.text
+        # context = {
+        #     'OrderID': '87878787878787',
+        #     'SessionID': '45454545454545',
+        #     'Status': '00',
+        # }
         if context['Status'] == '00':
             print("content.surname: ", content['surname'])
             order = Order.objects.create(orderid=context['OrderID'])
@@ -99,13 +113,30 @@ class Test(APIView):
             order.sessionid = context['SessionID']
             print("_____will save")
             order.save()
+            for i in basket:
+                if i.split(":")[0] == 'vitrin':
+                    product = Vitrin.objects.get(id=i.split(":")[1])
+                elif i.split(":")[0] == 'marsipan':
+                    product = Marsipan.objects.get(id=i.split(":")[1])
+                elif i.split(":")[0] == 'flower':
+                    product = Flower.objects.get(id=i.split(":")[1])
+                elif i.split(":")[0] == 'xonca':
+                    product = Xonca.objects.get(id=i.split(":")[1])
+                order_product = OrderProduct.objects.create(order=order, content_object=product, object_id=i.split(":")[1], quantity=basket[i])
+                order_product.save()
+                print("order created: ", order)
+            # return True
             url2 = 'https://e-commerce.kapitalbank.az/index.jsp?ORDERID=' + context['OrderID'] + '&SESSIONID=' + context['SessionID']
             # orderid = context.OrderID
             # sessionid = context.SessionID
+
+            # return True
+
+
             return Response({"Status": "00", "url": url2}, status=status.HTTP_200_OK)
         return Response({"Status": "30"}, status=status.HTTP_200_OK)
 
-# @method_decorator(csrf_exempt, name='dispatch')
+
 @csrf_exempt
 def MakeOrder(request):
     if request.method == 'POST':
