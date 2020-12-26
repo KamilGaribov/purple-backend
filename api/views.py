@@ -61,7 +61,7 @@ class Test(APIView):
         description = f'Purple Cake Boutique'
         headers = {"Content-Type": "application/xml"}
         url = "https://e-commerce.kapitalbank.az:5443/Exec"
-        cert = f"{certificate_folder}/purple.crt"
+        cert = f"{certificate_folder}/purple.pem"
         key = f"{certificate_folder}/purple.key"
         password = "purple"
         payload = f"""<?xml version="1.0" encoding="UTF-8"?>
@@ -75,7 +75,7 @@ class Test(APIView):
                 <Amount>{amount}</Amount>
                 <Currency>944</Currency>
                 <Description>{description}</Description>
-                <ApproveURL>http://192.168.31.51:8000/ordered/</ApproveURL>
+                <ApproveURL>http://api.purplecakeboutique.az/ordered/</ApproveURL>
                 <CancelURL>http://purplecakeboutique.az/</CancelURL>
                 <DeclineURL>http://purplecakeboutique.az/</DeclineURL>
             </Order>`
