@@ -158,7 +158,7 @@ STATIC_URL = '/static/'
 STATIC_ROOT = "static/"
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = '/home/purple-frontend/public'
+MEDIA_ROOT = '/root/frontend/public/'
 # MEDIA_ROOT = 'http://purplecakeboutique.az'
 # MEDIA_URL = env("MEDIA_URL")
 # MEDIA_ROOT = env("MEDIA_ROOT")
