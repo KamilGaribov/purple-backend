@@ -183,7 +183,7 @@ class Order(models.Model):
         elif self.old_status != self.status:
             if self.status == 'approved' and self.old_status == 'pending':
                 message = f"Yeni sifaris var http://api.purplecakeboutique.az/admin/api/order/{self.id}/change/"
-                sendemail(self.email, message)
+                sendemail("contact@purplecakeboutique.az", message)
         super(Order, self).save(*args, **kwargs)
 
 class OrderProduct(models.Model):
