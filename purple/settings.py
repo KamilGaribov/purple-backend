@@ -157,9 +157,14 @@ STATIC_URL = '/static/'
 # STATIC_ROOT = "/var/api.purplecakeboutique.az/static/"
 STATIC_ROOT = "static/"
 
+
+rootdir = Path(__file__).resolve().parent.parent.parent
+publicdir = os.path.join(rootdir, 'frontend', 'public')
+
 MEDIA_URL = '/media/'
+MEDIA_ROOT = publicdir
 # MEDIA_ROOT = '/root/frontend/public'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # MEDIA_ROOT = 'http://purplecakeboutique.az'
 # MEDIA_URL = env("MEDIA_URL")
 # MEDIA_ROOT = env("MEDIA_ROOT")
