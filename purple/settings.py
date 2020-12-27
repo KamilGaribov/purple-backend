@@ -158,12 +158,13 @@ STATIC_URL = '/static/'
 STATIC_ROOT = "static/"
 
 
-rootdir = Path(__file__).resolve().parent.parent.parent.parent
+# rootdir = Path(__file__).resolve().parent.parent.parent.parent
 # publicdir = os.path.join(rootdir, 'frontend', 'public')
-publicdir = os.path.join(os.path.dirname(__file__), 'frontend', 'public')
-
+# publicdir = os.path.join(os.path.dirname(__file__), 'frontend', 'public')
+PROJECT_ROOT = BASE_DIR.parent
+PUBLIC_ROOT = os.path.join(PROJECT_ROOT, 'frontend', 'public')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = publicdir
+MEDIA_ROOT = PROJECT_ROOT
 # MEDIA_ROOT = '/root/frontend/public'
 # MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # MEDIA_ROOT = 'http://purplecakeboutique.az'

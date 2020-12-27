@@ -31,6 +31,7 @@ certificate_folder = os.path.join(settings.BASE_DIR, 'certificates')
 urllib3.disable_warnings()
 from pathlib import Path
 import os
+from django.conf import settings
 
 
 class Test(APIView):
@@ -41,9 +42,7 @@ class Test(APIView):
     def post(self, request):
         # rootdir = Path(__file__).resolve().parent.parent.parent
         # publicdir = os.path.join(rootdir, 'frontend', 'public')
-        # print("publicdir_____", publicdir)
-        publicdir = os.path.join(os.path.dirname(__file__), 'frontend', 'public')
-        print("____public dir: ", publicdir)
+        print("publicdir_____", settings.PUBIC_ROOT)
         return True
         print("____test api starting____")
         print("__________request.body")
