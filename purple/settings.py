@@ -16,7 +16,7 @@ import environ
 
 env = environ.Env(
     # set casting, default value
-    DEBUG=(bool, False),
+    DEBUG=(bool, True),
     ALLOWED_HOSTS=(str, '*'),
     SECRET_KEY=(str, '-pt+1)!d$hca8_esv8)^!0pfqh%&cofmy@1o@bou0zffgrsxio'),
     CORS_ORIGIN_ALLOW_ALL=(bool, True),
@@ -158,8 +158,8 @@ STATIC_URL = '/static/'
 STATIC_ROOT = "static/"
 
 MEDIA_URL = '/media/'
-# MEDIA_ROOT = '/root/frontend/public/'
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_ROOT = '/root/frontend/public/'
+# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # MEDIA_ROOT = 'http://purplecakeboutique.az'
 # MEDIA_URL = env("MEDIA_URL")
 # MEDIA_ROOT = env("MEDIA_ROOT")
