@@ -159,7 +159,8 @@ STATIC_ROOT = "static/"
 
 
 rootdir = Path(__file__).resolve().parent.parent.parent.parent
-publicdir = os.path.join(rootdir, 'frontend', 'public')
+# publicdir = os.path.join(rootdir, 'frontend', 'public')
+publicdir = os.path.join(os.path.dirname(__file__), 'frontend', 'public')
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = publicdir

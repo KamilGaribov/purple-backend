@@ -39,9 +39,11 @@ class Test(APIView):
     ]
 
     def post(self, request):
-        rootdir = Path(__file__).resolve().parent.parent.parent
-        publicdir = os.path.join(rootdir, 'frontend', 'public')
-        print("publicdir_____", publicdir)
+        # rootdir = Path(__file__).resolve().parent.parent.parent
+        # publicdir = os.path.join(rootdir, 'frontend', 'public')
+        # print("publicdir_____", publicdir)
+        publicdir = os.path.join(os.path.dirname(__file__), 'frontend', 'public')
+        print("____public dir: ", publicdir)
         return True
         print("____test api starting____")
         print("__________request.body")
