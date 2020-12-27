@@ -16,7 +16,7 @@ import environ
 
 env = environ.Env(
     # set casting, default value
-    DEBUG=(bool, True),
+    DEBUG=(bool, False),
     ALLOWED_HOSTS=(str, '*'),
     SECRET_KEY=(str, '-pt+1)!d$hca8_esv8)^!0pfqh%&cofmy@1o@bou0zffgrsxio'),
     CORS_ORIGIN_ALLOW_ALL=(bool, True),
