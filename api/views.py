@@ -42,8 +42,8 @@ class Test(APIView):
     def post(self, request):
         # rootdir = Path(__file__).resolve().parent.parent.parent
         # publicdir = os.path.join(rootdir, 'frontend', 'public')
-        print("publicdir_____", settings.PUBIC_ROOT)
-        return True
+        # print("publicdir_____", settings.PUBIC_ROOT)
+        # return True
         print("____test api starting____")
         print("__________request.body")
         body_unicode = request.body.decode('utf-8')
