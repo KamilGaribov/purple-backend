@@ -139,16 +139,6 @@ class Contact(models.Model):
     subject = models.CharField(max_length=31)
     message = models.TextField()
 
-# PRODUCT_TYPE = [
-#     ('Vitrin', 'Vitrin'),
-#     ('Marsipan', 'Marsipan'),
-#     ('Flower', 'Flower'),
-#     ('Xonca', 'Xonca'),
-# ]
-# class ProductType(models.Model):
-#     type = models.CharField(choices=PRODUCT_TYPE, max_length=8)
-#     def __str__(self):
-#         return self.type
 
 class HomePageProduct(models.Model):
     vitrin = models.IntegerField(default=2)
@@ -166,7 +156,6 @@ class Order(models.Model):
     note = models.TextField(blank=True, null=True)
     orderid = models.IntegerField(unique=True)
     sessionid = models.CharField(max_length=127, unique=True)
-    # created = models.DateTimeField(auto_now_add=True)
     created_at = models.DateTimeField(("Created at"), auto_now_add=True)
     pan = models.CharField(max_length=32, blank=True, null=True)
     amount = models.DecimalField(max_digits=8, decimal_places=2, blank=True, null=True)

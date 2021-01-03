@@ -9,7 +9,7 @@ class VitrinCategorySerializer(serializers.ModelSerializer):
 
 class VitrinSerializer1(serializers.ModelSerializer):
     category = VitrinCategorySerializer(read_only=True)
-    image = serializers.ImageField(use_url=False)
+    # image = serializers.ImageField(use_url=False)
     class Meta:
         model = Vitrin
         fields = ('id', 'name', 'price', 'discount', 'category', 'image', )
