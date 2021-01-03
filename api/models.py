@@ -22,7 +22,7 @@ class Vitrin(models.Model):
     ingredient = models.CharField(max_length=511, blank=True, null=True)
     weight = models.DecimalField(
         max_digits=6, decimal_places=2, blank=True, null=True)
-    image = models.ImageField(upload_to='', blank=True, null=True)
+    image = models.ImageField(upload_to='vitrin/', blank=True, null=True)
     publish = models.BooleanField(default=True)
     homepage = models.BooleanField(default=False)
     similar1 = models.ForeignKey('Vitrin', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar1_of')
@@ -32,6 +32,9 @@ class Vitrin(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name = "Vitrin"
+        verbose_name_plural = "Vitrin"
 
 
 class VitrinCategory(models.Model):
@@ -52,7 +55,7 @@ class Marsipan(models.Model):
     ingredient = models.CharField(max_length=511, blank=True, null=True)
     weight = models.DecimalField(
         max_digits=6, decimal_places=2, blank=True, null=True)
-    image = models.ImageField(upload_to='', blank=True, null=True)
+    image = models.ImageField(upload_to='marsipan/', blank=True, null=True)
     publish = models.BooleanField(default=True)
     homepage = models.BooleanField(default=False)
     similar1 = models.ForeignKey('Marsipan', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar1_of')
@@ -62,6 +65,9 @@ class Marsipan(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name = "Marsipan"
+        verbose_name_plural = "Marsipan"
 
 
 class MarsipanCategory(models.Model):
@@ -81,7 +87,7 @@ class Flower(models.Model):
     ingredient = models.CharField(max_length=511, blank=True, null=True)
     weight = models.DecimalField(
         max_digits=6, decimal_places=2, blank=True, null=True)
-    image = models.ImageField(upload_to='', blank=True, null=True)
+    image = models.ImageField(upload_to='flower/', blank=True, null=True)
     publish = models.BooleanField(default=True)
     homepage = models.BooleanField(default=False)
     similar1 = models.ForeignKey('Flower', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar1_of')
@@ -91,6 +97,9 @@ class Flower(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name = "Flower"
+        verbose_name_plural = "Flower"
 
 
 class FlowerCategory(models.Model):
@@ -110,7 +119,7 @@ class Xonca(models.Model):
     ingredient = models.CharField(max_length=511, blank=True, null=True)
     weight = models.DecimalField(
         max_digits=6, decimal_places=2, blank=True, null=True)
-    image = models.ImageField(upload_to='', blank=True, null=True)
+    image = models.ImageField(upload_to='xonca/', blank=True, null=True)
     publish = models.BooleanField(default=True)
     homepage = models.BooleanField(default=False)
     similar1 = models.ForeignKey('Xonca', on_delete=models.SET_NULL, blank=True, null=True, related_name='similar1_of')
@@ -120,6 +129,9 @@ class Xonca(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name = "Xonca"
+        verbose_name_plural = "Xonca"
 
 
 class XoncaCategory(models.Model):
@@ -130,7 +142,10 @@ class XoncaCategory(models.Model):
 
 
 class Cafe(models.Model):
-    image = models.ImageField(upload_to='')
+    image = models.ImageField(upload_to='cafe/')
+    class Meta:
+        verbose_name = "Kafe"
+        verbose_name_plural = "Kafe"
 
 class Contact(models.Model):
     name = models.CharField(max_length=31)
@@ -138,6 +153,11 @@ class Contact(models.Model):
     phone = models.CharField(max_length=15, blank=True, null=True)
     subject = models.CharField(max_length=31)
     message = models.TextField()
+    def __str__(self):
+        return self.name + " :  " + self.subject
+    class Meta:
+        verbose_name = "Mektub"
+        verbose_name_plural = "Mektub"
 
 
 class HomePageProduct(models.Model):
@@ -174,6 +194,9 @@ class Order(models.Model):
                 message = f"Yeni sifaris var http://api.purplecakeboutique.az/admin/api/order/{self.id}/change/"
                 sendemail("contact@purplecakeboutique.az", message)
         super(Order, self).save(*args, **kwargs)
+    class Meta:
+        verbose_name = "Sifaris"
+        verbose_name_plural = "Sifaris"
 
 class OrderProduct(models.Model):
     order = models.ForeignKey('Order', on_delete=models.CASCADE)

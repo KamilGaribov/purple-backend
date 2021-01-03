@@ -9,14 +9,14 @@ class VitrinCategorySerializer(serializers.ModelSerializer):
 
 class VitrinSerializer1(serializers.ModelSerializer):
     category = VitrinCategorySerializer(read_only=True)
-    # image = serializers.ImageField(use_url=False)
+    image = serializers.ImageField(use_url=False)
     class Meta:
         model = Vitrin
         fields = ('id', 'name', 'price', 'discount', 'category', 'image', )
 
 class VitrinSerializer(serializers.ModelSerializer):
     category = VitrinCategorySerializer(read_only=True)
-    image = serializers.ImageField(use_url=False)
+    # image = serializers.ImageField(use_url=False)
     similar1 = VitrinSerializer1()
     similar2 = VitrinSerializer1()
     similar3 = VitrinSerializer1()
@@ -39,7 +39,6 @@ class MarsipanSerializer1(serializers.ModelSerializer):
 
 class MarsipanSerializer(serializers.ModelSerializer):
     category = MarsipanCategorySerializer(read_only=True)
-    image = serializers.ImageField(use_url=False)
     similar1 = MarsipanSerializer1()
     similar2 = MarsipanSerializer1()
     similar3 = MarsipanSerializer1()
@@ -62,7 +61,6 @@ class FlowerSerializer1(serializers.ModelSerializer):
 
 class FlowerSerializer(serializers.ModelSerializer):
     category = FlowerCategorySerializer(read_only=True)
-    image = serializers.ImageField(use_url=False)
     similar1 = FlowerSerializer1()
     similar2 = FlowerSerializer1()
     similar3 = FlowerSerializer1()
@@ -85,7 +83,6 @@ class XoncaSerializer1(serializers.ModelSerializer):
 
 class XoncaSerializer(serializers.ModelSerializer):
     category = XoncaCategorySerializer(read_only=True)
-    image = serializers.ImageField(use_url=False)
     similar1 = XoncaSerializer1()
     similar2 = XoncaSerializer1()
     similar3 = XoncaSerializer1()
@@ -95,7 +92,7 @@ class XoncaSerializer(serializers.ModelSerializer):
         fields = ('id', 'name', 'price', 'discount', 'category', 'ingredient', 'weight', 'image', 'similar1', 'similar2', 'similar3', 'similar4', )
 
 class CafeSerializer(serializers.ModelSerializer):
-    image = serializers.ImageField(use_url=False) 
+    # image = serializers.ImageField(use_url=False) 
     class Meta:
         model = Cafe
         fields = ('id', 'image', )
