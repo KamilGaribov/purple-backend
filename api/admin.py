@@ -85,13 +85,13 @@ class OrderAdmin(admin.ModelAdmin):
         model = Order
 
 admin.site.register(Vitrin, VitrinAdmin)
-# admin.site.register(VitrinCategory, VitrinCategoryAdmin)
+admin.site.register(VitrinCategory, VitrinCategoryAdmin)
 admin.site.register(Marsipan, MarsipanAdmin)
-# admin.site.register(MarsipanCategory, MarsipanCategoryAdmin)
+admin.site.register(MarsipanCategory, MarsipanCategoryAdmin)
 admin.site.register(Flower, FlowerAdmin)
-# admin.site.register(FlowerCategory, FlowerCategoryAdmin)
+admin.site.register(FlowerCategory, FlowerCategoryAdmin)
 admin.site.register(Xonca, XoncaAdmin)
-# admin.site.register(XoncaCategory, XoncaCategoryAdmin)
+admin.site.register(XoncaCategory, XoncaCategoryAdmin)
 admin.site.register(Cafe, CafeAdmin)
 admin.site.register(Contact, ContactAdmin)
 # admin.site.register(HomePageProduct, HomePageProductAdmin)
