@@ -79,15 +79,8 @@ class OrderAdmin(admin.ModelAdmin):
     inlines = [OrderProductTabular, ]
     search_fields = ('name', )
     list_filter = ('status', )
-    # readonly_fields = ('sessionid', 'orderid', 'pan', 'amount', 'created_at', 'status', )
-    # readonly_fields = '__all__'
     def get_readonly_fields(self, request, obj=None):
         return [f.name for f in self.model._meta.fields]
-
-    # actions = ['make_tags_active']
-    # def make_tags_active(self, request, queryset):
-    #     queryset.update(status='approved')
-    # make_tags_active.short_description = "Mark selected tags as active"
     class Meta:
         model = Order
 

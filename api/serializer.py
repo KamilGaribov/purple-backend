@@ -9,7 +9,6 @@ class VitrinCategorySerializer(serializers.ModelSerializer):
 
 class VitrinSerializer1(serializers.ModelSerializer):
     category = VitrinCategorySerializer(read_only=True)
-    image = serializers.ImageField(use_url=False)
     class Meta:
         model = Vitrin
         fields = ('id', 'name', 'price', 'discount', 'category', 'image', )
@@ -32,7 +31,6 @@ class MarsipanCategorySerializer(serializers.ModelSerializer):
 
 class MarsipanSerializer1(serializers.ModelSerializer):
     category = MarsipanCategorySerializer(read_only=True)
-    image = serializers.ImageField(use_url=False)
     class Meta:
         model = Marsipan
         fields = ('id', 'name', 'price', 'discount', 'category', 'image', )
@@ -54,7 +52,6 @@ class FlowerCategorySerializer(serializers.ModelSerializer):
 
 class FlowerSerializer1(serializers.ModelSerializer):
     category = FlowerCategorySerializer(read_only=True)
-    image = serializers.ImageField(use_url=False)
     class Meta:
         model = Flower
         fields = ('id', 'name', 'price', 'discount', 'category', 'image', )
@@ -76,7 +73,6 @@ class XoncaCategorySerializer(serializers.ModelSerializer):
 
 class XoncaSerializer1(serializers.ModelSerializer):
     category = XoncaCategorySerializer(read_only=True)
-    image = serializers.ImageField(use_url=False)
     class Meta:
         model = Xonca
         fields = ('id', 'name', 'price', 'discount', 'category', 'image', )

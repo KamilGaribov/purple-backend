@@ -12,7 +12,7 @@ STATUS_TYPES = [
 ]
 
 class Vitrin(models.Model):
-    name = models.CharField(max_length=63)
+    name = models.CharField(max_length=63, unique=True)
     price = models.DecimalField(
         max_digits=6, decimal_places=2, blank=True, null=True, default=5.90)
     discount = models.DecimalField(
@@ -38,14 +38,14 @@ class Vitrin(models.Model):
 
 
 class VitrinCategory(models.Model):
-    name = models.CharField(max_length=63)
+    name = models.CharField(max_length=63, unique=True)
 
     def __str__(self):
         return self.name
 
 
 class Marsipan(models.Model):
-    name = models.CharField(max_length=63)
+    name = models.CharField(max_length=63, unique=True)
     price = models.DecimalField(
         max_digits=6, decimal_places=2, blank=True, null=True, default=12.00)
     discount = models.DecimalField(
@@ -71,13 +71,13 @@ class Marsipan(models.Model):
 
 
 class MarsipanCategory(models.Model):
-    name = models.CharField(max_length=63)
+    name = models.CharField(max_length=63, unique=True)
 
     def __str__(self):
         return self.name
 
 class Flower(models.Model):
-    name = models.CharField(max_length=63)
+    name = models.CharField(max_length=63, unique=True)
     price = models.DecimalField(
         max_digits=6, decimal_places=2, blank=True, null=True, default=12.00)
     discount = models.DecimalField(
@@ -103,13 +103,13 @@ class Flower(models.Model):
 
 
 class FlowerCategory(models.Model):
-    name = models.CharField(max_length=63)
+    name = models.CharField(max_length=63, unique=True)
 
     def __str__(self):
         return self.name
 
 class Xonca(models.Model):
-    name = models.CharField(max_length=63)
+    name = models.CharField(max_length=63, unique=True)
     price = models.DecimalField(
         max_digits=6, decimal_places=2, blank=True, null=True, default=12.00)
     discount = models.DecimalField(
@@ -135,7 +135,7 @@ class Xonca(models.Model):
 
 
 class XoncaCategory(models.Model):
-    name = models.CharField(max_length=63)
+    name = models.CharField(max_length=63, unique=True)
 
     def __str__(self):
         return self.name
@@ -192,7 +192,9 @@ class Order(models.Model):
         elif self.old_status != self.status:
             if self.status == 'approved' and self.old_status == 'pending':
                 message = f"Yeni sifaris var http://api.purplecakeboutique.az/admin/api/order/{self.id}/change/"
-                sendemail("contact@purplecakeboutique.az", message)
+                sendemail("dianaguven@hotmail.com", message)
+                sendemail("halimecoskunn@hotmail.com", message)
+                sendemail("aqilbalagozov@gmail.com", message)
         super(Order, self).save(*args, **kwargs)
     class Meta:
         verbose_name = "Sifaris"

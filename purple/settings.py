@@ -19,7 +19,7 @@ env = environ.Env(
     DEBUG=(bool, True),
     ALLOWED_HOSTS=(str, '*'),
     SECRET_KEY=(str, '-pt+1)!d$hca8_esv8)^!0pfqh%&cofmy@1o@bou0zffgrsxio'),
-    CORS_ORIGIN_ALLOW_ALL=(bool, True),
+    CORS_ORIGIN_ALLOW_ALL=(bool, False),
     ROOT_URLCONF=(str, 'purple.urls'),
     WSGI_APPLICATION=(str, 'purple.wsgi.application'),
     LANGUAGE_CODE=(str, 'en-us'),
@@ -28,9 +28,9 @@ env = environ.Env(
     USE_L10N=(bool, True),
     USE_TZ=(bool, True),
     STATIC_URL=(str, '/static/'),
-    STATIC_ROOT=(str, 'static/'),
-    # MEDIA_URL=(str, '/media/'),
-    # MEDIA_ROOT=(str, 'http://purplecakeboutique.az/'),
+    STATIC_ROOT=(str, 'static'),
+    MEDIA_URL=(str, '/media/'),
+    MEDIA_ROOT=(str, 'media'),
 )
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -47,6 +47,13 @@ DEBUG = env("DEBUG")
 ALLOWED_HOSTS = [env("ALLOWED_HOSTS")]
 
 CORS_ORIGIN_ALLOW_ALL = env("CORS_ORIGIN_ALLOW_ALL")
+
+CORS_ORIGIN_WHITELIST = [
+    'http://localhost:3000',
+    'http://159.89.19.237:3000',
+    'http://127.0.0.1:3000',
+    'http://0.0.0.0:3000',
+]
 
 # Application definition
 
@@ -145,32 +152,12 @@ USE_L10N = env("USE_L10N")
 
 USE_TZ = env("USE_TZ")
 
-# STATIC_URL = env("STATIC_URL")
-# STATIC_ROOT = env("STATIC_ROOT")
 
-# STATICFILES_DIR = '/root/purple-backend/static'
-# STATIC_ROOT = '/root/purple-backend/static'
 # STATICFILES_DIRS = [
 #     os.path.join(BASE_DIR, "static"),
 # ]
-STATIC_URL = '/static/'
-# STATIC_ROOT = "/var/api.purplecakeboutique.az/static/"
-STATIC_ROOT = "static/"
+STATIC_URL = env("STATIC_URL")
+STATIC_ROOT = env("STATIC_ROOT")
 
-
-# rootdir = Path(__file__).resolve().parent.parent.parent.parent
-# publicdir = os.path.join(rootdir, 'frontend', 'public')
-# publicdir = os.path.join(os.path.dirname(__file__), 'frontend', 'public')
-# PROJECT_ROOT = BASE_DIR.parent
-# PUBLIC_ROOT = os.path.join(PROJECT_ROOT, 'frontend', 'public')
-# PUBLIC_ROOT = os.path.join(BASE_DIR, "..", "frontend", "public")
-MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(BASE_DIR, "media")
-# MEDIA_ROOT = PROJECT_ROOT
-# MEDIA_ROOT = '/root/frontend/public'
-# MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
-# MEDIA_ROOT = 'http://purplecakeboutique.az'
-# MEDIA_URL = env("MEDIA_URL")
-# MEDIA_ROOT = env("MEDIA_ROOT")
-# /root/purple-backend/static
-# /var/api.purplecakeboutique.az/static/
+MEDIA_URL = env("MEDIA_URL")
+MEDIA_ROOT = env("MEDIA_ROOT")
