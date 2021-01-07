@@ -153,9 +153,9 @@ USE_L10N = env("USE_L10N")
 USE_TZ = env("USE_TZ")
 
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "static"),
-]
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "static"),
+# ]
 
 if DEBUG:
     STATIC_ROOT = env("STATIC_ROOT")
