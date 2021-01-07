@@ -160,7 +160,7 @@ STATICFILES_DIRS = [
 if DEBUG:
     STATIC_ROOT = env("STATIC_ROOT")
 else:
-    STATIC_ROOT = "/code/static/"
+    STATIC_ROOT = "/static/"
 
 STATIC_URL = env("STATIC_URL")
 
