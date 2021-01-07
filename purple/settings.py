@@ -161,13 +161,14 @@ USE_TZ = env("USE_TZ")
 #     STATIC_ROOT = env("STATIC_ROOT")
 # else:
 #     "static"
-if not DEBUG:
-    STATIC_ROOT = os.path.join(BASE_DIR, "static")
-else:
-    STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
+# if not DEBUG:
+#     STATIC_ROOT = os.path.join(BASE_DIR, "static")
+# else:
+#     STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'static')
+# ]
 
+STATIC_ROOT = env("STATIC_ROOT")
 STATIC_URL = env("STATIC_URL")
 
 MEDIA_URL = env("MEDIA_URL")
