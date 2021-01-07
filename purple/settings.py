@@ -156,8 +156,7 @@ USE_TZ = env("USE_TZ")
 # STATICFILES_DIRS = [
 # ]
 STATICFILES_DIRS = [
-    # os.path.join(BASE_DIR, "static"),
-    '/code/static/',
+    os.path.join(BASE_DIR, "static"),
 ]
 STATIC_URL = env("STATIC_URL")
 STATIC_ROOT = env("STATIC_ROOT")
