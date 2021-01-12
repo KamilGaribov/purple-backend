@@ -61,7 +61,7 @@ class OrderProductTabular(admin.TabularInline):
 
     def url_display(self, obj):
         if obj.product:
-            return format_html(f'<a href={obj.url}>{obj.product}</a>')
+            return format_html(f'<a href={obj.url} target="_blank">{obj.product}</a>')
         return ''
     # def url_tag(self, obj):
     #     return 'salam'
