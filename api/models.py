@@ -195,6 +195,7 @@ class Order(models.Model):
                 sendemail("dianaguven@hotmail.com", message)
                 sendemail("halimecoskunn@hotmail.com", message)
                 sendemail("aqilbalagozov@gmail.com", message)
+                sendemail("nigarmalikzade@gmail.com", message)
         super(Order, self).save(*args, **kwargs)
     class Meta:
         verbose_name = "Sifaris"

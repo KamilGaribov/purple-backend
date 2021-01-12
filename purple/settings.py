@@ -16,7 +16,7 @@ import environ
 
 env = environ.Env(
     # set casting, default value
-    DEBUG=(bool, True),
+    DEBUG=(bool, False),
     ALLOWED_HOSTS=(str, '*'),
     SECRET_KEY=(str, '-pt+1)!d$hca8_esv8)^!0pfqh%&cofmy@1o@bou0zffgrsxio'),
     CORS_ORIGIN_ALLOW_ALL=(bool, False),
@@ -151,22 +151,6 @@ USE_I18N = env("USE_I18N")
 USE_L10N = env("USE_L10N")
 
 USE_TZ = env("USE_TZ")
-
-
-# STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, "static"),
-# ]
-
-# if DEBUG:
-#     STATIC_ROOT = env("STATIC_ROOT")
-# else:
-#     "static"
-# if not DEBUG:
-#     STATIC_ROOT = os.path.join(BASE_DIR, "static")
-# else:
-#     STATICFILES_DIRS = [
-#     os.path.join(BASE_DIR, 'static')
-# ]
 
 STATIC_ROOT = env("STATIC_ROOT")
 STATIC_URL = env("STATIC_URL")
