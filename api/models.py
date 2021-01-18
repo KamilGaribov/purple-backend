@@ -33,7 +33,6 @@ class Vitrin(models.Model):
     def __str__(self):
         return self.name
     class Meta:
-        verbose_name = "Vitrin"
         verbose_name_plural = "Vitrin"
 
 
@@ -42,6 +41,8 @@ class VitrinCategory(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name_plural = "Vitrin kateqoriyaları"
 
 
 class Marsipan(models.Model):
@@ -66,7 +67,6 @@ class Marsipan(models.Model):
     def __str__(self):
         return self.name
     class Meta:
-        verbose_name = "Marsipan"
         verbose_name_plural = "Marsipan"
 
 
@@ -75,6 +75,8 @@ class MarsipanCategory(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name_plural = "Marispan kateqoriyaları"
 
 class Flower(models.Model):
     name = models.CharField(max_length=63, unique=True)
@@ -124,7 +126,6 @@ class Xonca(models.Model):
     def __str__(self):
         return self.name
     class Meta:
-        verbose_name = "Xonca"
         verbose_name_plural = "Xonca"
 
 
@@ -133,6 +134,8 @@ class XoncaCategory(models.Model):
 
     def __str__(self):
         return self.name
+    class Meta:
+        verbose_name_plural = "Xonça kateqoriyaları"
 
 
 class Cafe(models.Model):
@@ -150,7 +153,6 @@ class Contact(models.Model):
     def __str__(self):
         return self.name + " :  " + self.subject
     class Meta:
-        verbose_name = "Mektub"
         verbose_name_plural = "Mektub"
 
 
@@ -159,6 +161,11 @@ class HomePageProduct(models.Model):
     marsipan = models.IntegerField(default=2)
     flower = models.IntegerField(default=2)
     xonca = models.IntegerField(default=2)
+    def __str__(self):
+        return "Say"
+    class Meta:
+        verbose_name = "Ancaq 1-ci say işləyir"
+        verbose_name_plural = "Ana səhifə sayları"
 
 class Order(models.Model):
     name = models.CharField(max_length=63)
@@ -192,7 +199,6 @@ class Order(models.Model):
                 sendemail("nigarmalikzade@gmail.com", message)
         super(Order, self).save(*args, **kwargs)
     class Meta:
-        verbose_name = "Sifaris"
         verbose_name_plural = "Sifaris"
 
 class OrderProduct(models.Model):
