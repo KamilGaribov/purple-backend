@@ -57,7 +57,6 @@ class Test(APIView):
                 else:
                     amount += product.price * int(basket[i])
             elif i.split(":")[0] == 'flower':
-                print("girdi")
                 product = Flower.objects.get(id=i.split(":")[1])
                 if product.discount:
                     amount += product.discount * int(basket[i])
