@@ -166,24 +166,40 @@ class VitrinApi(viewsets.ModelViewSet):
     serializer_class = VitrinSerializer
     http_method_names = ['get',]
 
+class VitrinCategoryApi(viewsets.ModelViewSet):
+    queryset = VitrinCategory.objects.all()
+    serializer_class = VitrinCategorySerializer
+    http_method_names = ['get', ]
 
 class MarsipanApi(viewsets.ModelViewSet):
     queryset = Marsipan.objects.filter(publish=True)
     serializer_class = MarsipanSerializer
     http_method_names = ['get',]
 
+class MarsipanCategoryApi(viewsets.ModelViewSet):
+    queryset = MarsipanCategory.objects.all()
+    serializer_class = MarsipanCategorySerializer
+    http_method_names = ['get', ]
 
 class FlowerApi(viewsets.ModelViewSet):
     queryset = Flower.objects.filter(publish=True)
     serializer_class = FlowerSerializer
     http_method_names = ['get',]
 
+class FlowerCategoryApi(viewsets.ModelViewSet):
+    queryset = FlowerCategory.objects.all()
+    serializer_class = FlowerCategorySerializer
+    http_method_names = ['get', ]
 
 class XoncaApi(viewsets.ModelViewSet):
     queryset = Xonca.objects.filter(publish=True)
     serializer_class = XoncaSerializer
     http_method_names = ['get',]
 
+class XoncaCategoryApi(viewsets.ModelViewSet):
+    queryset = Xonca.objects.all()
+    serializer_class = XoncaCategorySerializer
+    http_method_names = ['get', ]
 
 class CafeApi(viewsets.ModelViewSet):
     queryset = Cafe.objects.all()

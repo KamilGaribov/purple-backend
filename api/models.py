@@ -86,6 +86,7 @@ class Flower(models.Model):
         max_digits=6, decimal_places=2, blank=True, null=True)
     category = models.ForeignKey(
         'FlowerCategory', on_delete=models.SET_NULL, blank=True, null=True, default=4)
+    ingredient = models.CharField(max_length=511, blank=True, null=True)
     image = models.ImageField(upload_to='flower/', blank=True, null=True)
     publish = models.BooleanField(default=True)
     homepage = models.BooleanField(default=False)
@@ -115,6 +116,7 @@ class Xonca(models.Model):
         max_digits=6, decimal_places=2, blank=True, null=True)
     category = models.ForeignKey(
         'XoncaCategory', on_delete=models.SET_NULL, blank=True, null=True, default=4)
+    ingredient = models.CharField(max_length=511, blank=True, null=True)
     image = models.ImageField(upload_to='xonca/', blank=True, null=True)
     publish = models.BooleanField(default=True)
     homepage = models.BooleanField(default=False)
