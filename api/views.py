@@ -197,7 +197,7 @@ class XoncaApi(viewsets.ModelViewSet):
     http_method_names = ['get',]
 
 class XoncaCategoryApi(viewsets.ModelViewSet):
-    queryset = Xonca.objects.all()
+    queryset = XoncaCategory.objects.all()
     serializer_class = XoncaCategorySerializer
     http_method_names = ['get', ]
 
