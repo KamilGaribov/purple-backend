@@ -229,30 +229,30 @@ class OrderProduct(models.Model):
         super(OrderProduct, self).save(*args, **kwargs)
 
 
-class SocialMedia(models.Model):
-    to_facebook = models.IntegerField(blank=True, null=True, default=0)
-    to_instagram = models.IntegerField(blank=True, null=True, default=0)
-    from_facebook = models.IntegerField(blank=True, null=True, default=0)
-    from_instagram = models.IntegerField(blank=True, null=True, default=0)
-    from_oxu_az = models.IntegerField(blank=True, null=True, default=0)
-    def __str__(self):
-        return '1 ədəd olmalıdır'
-    class Meta:
-        verbose_name_plural = "Sosial medya backlink'ləri"
-    def save(self, *args, **kwargs):
-        self.from_facebook = Backlink.objects.filter(action='from_facebook').count()
-        self.from_instagram = Backlink.objects.filter(action='from_instagram').count()
-        self.from_oxu_az = Backlink.objects.filter(action='from_oxu_az').count()
-        self.to_facebook = Backlink.objects.filter(action='to_facebook').count()
-        self.to_instagram = Backlink.objects.filter(action='to_instagram').count()
-        super(SocialMedia, self).save(*args, **kwargs)
+# class SocialMedia(models.Model):
+#     to_facebook = models.IntegerField(blank=True, null=True, default=0)
+#     to_instagram = models.IntegerField(blank=True, null=True, default=0)
+#     from_facebook = models.IntegerField(blank=True, null=True, default=0)
+#     from_instagram = models.IntegerField(blank=True, null=True, default=0)
+#     from_oxu_az = models.IntegerField(blank=True, null=True, default=0)
+#     def __str__(self):
+#         return '1 ədəd olmalıdır'
+#     class Meta:
+#         verbose_name_plural = "Sosial medya backlink'ləri"
+#     def save(self, *args, **kwargs):
+#         self.from_facebook = Backlink.objects.filter(action='from_facebook').count()
+#         self.from_instagram = Backlink.objects.filter(action='from_instagram').count()
+#         self.from_oxu_az = Backlink.objects.filter(action='from_oxu_az').count()
+#         self.to_facebook = Backlink.objects.filter(action='to_facebook').count()
+#         self.to_instagram = Backlink.objects.filter(action='to_instagram').count()
+#         super(SocialMedia, self).save(*args, **kwargs)
 
 
-class Backlink(models.Model):
-    action = models.CharField(choices=BACKLINK_TYPES, max_length=15)
-    ip = models.CharField(max_length=31)
-    date = models.DateTimeField(auto_now_add=True)
-    def __str__(self):
-        return self.ip + " " + self.action
-    class Meta:
-        verbose_name_plural = "Backlink IP'ləri"
+# class Backlink(models.Model):
+#     action = models.CharField(choices=BACKLINK_TYPES, max_length=15)
+#     ip = models.CharField(max_length=31)
+#     date = models.DateTimeField(auto_now_add=True)
+#     def __str__(self):
+#         return self.ip + " " + self.action
+#     class Meta:
+#         verbose_name_plural = "Backlink IP'ləri"
