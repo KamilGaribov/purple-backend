@@ -239,3 +239,26 @@ class HomePageProductApi(viewsets.ModelViewSet):
             return list
         else:
             return []
+
+
+def SocialMediaApi(request):
+    ip = request.META.get("REMOTE_ADDR")
+    url = request.get_full_path()
+    if url == '/ff/':
+        action = 'from_facebook'
+    elif url == '/fi/':
+        action = 'from_instagram'
+    elif url == '/fo/':
+        action = 'from_oxu_az'
+    elif url == '/tf/':
+        action = 'to_facebook'
+    elif url == '/ti/':
+        action = 'to_instagram'
+    obj = Backlink.objects.create(ip=ip, action=action)
+    obj.save()
+    try:
+        model = SocialMedia.objects.all()[0]
+        model.save()
+    except:
+        model = SocialMedia.objects.create()
+    return True

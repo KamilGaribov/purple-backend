@@ -84,6 +84,21 @@ class OrderAdmin(admin.ModelAdmin):
     class Meta:
         model = Order
 
+class SocialMediaAdmin(admin.ModelAdmin):
+    def get_readonly_fields(self, request, obj=None):
+        return [f.name for f in self.model._meta.fields]
+    class Meta:
+        model = SocialMedia
+
+class BacklinkAdmin(admin.ModelAdmin):
+    # fields = ('action', 'ip', 'date', )
+    list_filter = ('action', 'ip', )
+    def get_readonly_fields(self, request, obj=None):
+        return [f.name for f in self.model._meta.fields]
+    class Meta:
+        model = Backlink
+
+
 admin.site.register(Vitrin, VitrinAdmin)
 admin.site.register(VitrinCategory, VitrinCategoryAdmin)
 admin.site.register(Marsipan, MarsipanAdmin)
@@ -96,4 +111,6 @@ admin.site.register(Cafe, CafeAdmin)
 admin.site.register(Contact, ContactAdmin)
 admin.site.register(HomePageProduct, HomePageProductAdmin)
 admin.site.register(Order, OrderAdmin)
-# admin.site.register(OrderProduct, OrderProductAdmin)
+admin.site.register(OrderProduct, OrderProductAdmin)
+admin.site.register(SocialMedia, SocialMediaAdmin)
+admin.site.register(Backlink, BacklinkAdmin)
