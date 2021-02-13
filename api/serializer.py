@@ -85,7 +85,7 @@ class XoncaSerializer(serializers.ModelSerializer):
     similar4 = XoncaSerializer1()
     class Meta:
         model = Xonca
-        fields = ('id', 'name', 'price', 'discount', 'category', 'ingredient', 'weight', 'image', 'similar1', 'similar2', 'similar3', 'similar4', )
+        fields = ('id', 'name', 'price', 'discount', 'category', 'ingredient', 'image', 'similar1', 'similar2', 'similar3', 'similar4', )
 
 class CafeSerializer(serializers.ModelSerializer):
     # image = serializers.ImageField(use_url=False) 
