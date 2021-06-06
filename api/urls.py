@@ -1,6 +1,6 @@
 from django.urls import path
 from .routers import router
-from .views import Test, SocialMediaApi
+from .views import Read, Test, SocialMediaApi
 app_name = 'api'
 
 
@@ -11,6 +11,7 @@ urlpatterns = [
     path('tf/', SocialMediaApi, name='social'),
     path('ti/', SocialMediaApi, name='social'),
     path('fo/', SocialMediaApi, name='social'),
+    path('read/', Read, name='read'),
 ]
 
 urlpatterns += router.urls

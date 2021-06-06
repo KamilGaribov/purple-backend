@@ -262,3 +262,11 @@ def SocialMediaApi(request):
     except:
         model = SocialMedia.objects.create()
     return True
+
+def Read(request):
+    x = HomePageProduct.objects.all().count()
+    if x == 0:
+        HomePageProduct.objects.create()
+    else:
+        print("var_____", x)
+    return HttpResponse("salam")
