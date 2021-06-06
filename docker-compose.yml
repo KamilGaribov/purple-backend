@@ -21,7 +21,7 @@ services:
   #   restart: on-failure
 
   web:
-    container_name: django
+    container_name: django2
     build: .
     volumes:
       - .:/code
