@@ -54,7 +54,7 @@ CORS_ORIGIN_WHITELIST = [
     'http://127.0.0.1:3000',
     'http://0.0.0.0:3000',
     'https://purplecakeboutique.az',
-    'http://46.101.106.253:3000',
+    'http://104.248.251.84:3001',
 ]
 
 # Application definition
